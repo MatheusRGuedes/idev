@@ -1,1 +1,85 @@
-<h1>TESTE</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Exercício 1</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- icons -->
+	<script src="https://kit.fontawesome.com/5fe61bae6a.js" crossorigin="anonymous"></script>
+	<!-- estilo externo -->
+	<link rel="stylesheet" type="text/css" href="index.css">
+</head>
+
+<body>
+
+	<div id="phone">
+		<span id="cameraArea">
+			<div>
+				<span></span>
+				<span></span>
+			</div>
+		</span>
+
+		<span id="screen">
+
+			<div id="bg-image"></div>
+
+			<div id="screenContent">
+				<div id="navTop">
+					<i class="fas fa-signal"></i>
+					<p class="BRA">BRA</p>
+					<i class="fas fa-wifi"></i>
+					<div>
+						<i class="fas fa-lock"></i>
+					</div>
+					<p class="batteryLevel">100%</p>
+					<i class="fas fa-battery-full"></i>
+				</div>
+
+				<div id="unlockScreen">
+					
+					<p>Digite o Código</p>
+
+					<div class="checking"> <!-- mudar nome -->
+						<label for=""></label>
+						<label for=""></label>
+						<label for=""></label>
+						<label for=""></label>
+					</div>
+
+					<label class="digits">
+						<span>1</span>
+						<span>2</span>
+						<span>3</span>
+						<span>4</span>
+						<span>5</span>
+						<span>6</span>
+						<span>7</span>
+						<span>8</span>
+						<span>9</span>
+						<span>0</span>
+					</label>
+				</div>
+
+			</div>
+		</span>
+		
+		<span id="btnArea">
+			<span>
+				<input type="button" id="fisicBtn">
+			</span>
+		</span>
+	</div>
+
+	<div id="settings">
+		<h1>Configurações: </h1>
+		<label>Crie seu código para desbloquear:</label>
+		<input type="text" id="code">
+		<input type="button" value="Salvar" id="salvar">
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	
+	<script type="text/javascript" src="index.js"></script>
+</body>
+</html>
