@@ -11,7 +11,7 @@
 		});
 
 		const screenContent = document.getElementById('screenContent'),
-				lock = document.querySelector('#navTop .fa-lock');
+			  lock = document.querySelector('#navTop .fa-lock');
 
 		//pegar e validar codigo
 		document.getElementById('salvar').addEventListener("click", function() {
@@ -29,7 +29,14 @@
 					codeDigited = '',
 					posCheck = 0;
 
+				const checking = document.querySelector('.checking'),
+					  lockIcon = document.querySelector('#navTop div i.fa-lock');
+				//remover antes de adicionar
+				checking.classList.remove('animate');
+				lockIcon.classList.remove('animate');
+
 				//length = 10
+				//adiciona evento para tds os numeros
 				for (let num = 0; num < numeros.length; num++) {
 					numeros[num].addEventListener("click", function() {
 						codeDigited += numeros[num].innerText;
@@ -42,21 +49,18 @@
 								$('#unlockScreen , #bg-image , #navTop div').slideUp('fast');
 							})
 
-							const finalScreen = document.createElement('div');
-							finalScreen.setAttribute('class', 'finalScreen');
-							screenContent.appendChild(finalScreen);
+							const finalScreen = document.querySelector('.finalScreen');
+							finalScreen.classList.add('unlocked');
 
 							console.log(codeDigited);
 						} 
 						if (codeDigited.length - 1 == codeAcess.length - 1) {
 							for (let i = 0; i < codeDigited.length; i++) {
 								if (codeDigited[i] != codeAcess[i]) {
-									$(function() {
-										$('#navTop .fa-lock').animate({left: '0%'}, 300)
-										$('#navTop .fa-lock').animate({
-											left: '50%', 
-											transform: 'translateX(-50%)'}, 300)
-									})
+									
+									//efeito balançar se os codigos forem diferentes
+									lockIcon.classList.add('animate');
+									checking.classList.add('animate');
 
 									//remove preenchimento
 									for (let posCheck = 0; posCheck < numberCheck.length; posCheck++) {
@@ -70,3 +74,25 @@
 
 			}
 		});
+
+		$(document).ready(function() {
+			$('#lightSlider').lightSlider({
+				gallery: false,
+				item: 1,
+				controls: false,
+				slideMargin: 10,
+				vertical: false,
+				adaptativeHeight: false,
+				keyPress: false,
+				pager: false
+			});
+		});
+
+
+		const apps = document.querySelectorAll(".finalScreen li .app");
+
+		for (let pos = 0; pos < apps.length; pos++) {
+			apps[pos].addEventListener("click", function(){
+				this.classList.add("clicked");
+			})
+		}
