@@ -121,7 +121,7 @@ body {
   width: 100%;
   height: auto;
   margin-top: 1.5em;
-  display: none;
+  display: block;
   position: relative;
   text-align: center; }
   #unlockScreen p {
