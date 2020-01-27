@@ -4,6 +4,21 @@
 	height: $height;
 }
 
+@mixin keyframes ($name) {
+	@-webkit-keyframes #{$name} {
+    	@content; 
+  	}
+  	@-moz-keyframes #{$name} {
+   	 	@content;
+  	}
+  	@-ms-keyframes #{$name} {
+    	@content;
+  	}
+  	@keyframes #{$name} {
+   	 	@content;
+  	}
+}
+
 body {
 	background: black;
 	color: white;
@@ -81,7 +96,8 @@ body {
 	padding: 7px;
 	position: relative;
 	display: block;
-	height: calc(100% - 14px);
+	height: calc(100% - 18px);
+	border: 2px solid black;
 	z-index: 1;
 }
 #navTop {
@@ -121,6 +137,11 @@ body {
 	.fa-lock {
 		left: 50%;
 		transform: translateX(-50%);
+
+		&.animate {
+			animation: balancar 500ms;
+			animation-timing-function: linear;
+		}
 	}
 	.batteryLevel {
 		right: 10px;
@@ -136,7 +157,7 @@ body {
 	width: 100%;
 	height: auto;
 	margin-top: 1.5em;
-	display: block;
+	display: none;
 	position: relative;
 	text-align: center;
 
@@ -156,22 +177,113 @@ body {
 	left: 0;
 	overflow-x: auto;
 	z-index: -1;
-	
+
 	&.unlocked {
 		display: block;
+	}
+	
+	#navMiddle {
+		width: 100%;
+		height: 80%;
+		margin-top: 25px;
+		position: relative;
+
+		#lightSlider {
+			margin: 0px;
+			padding: 0px;
+			list-style-type: none;
+		}
+		#lightSlider li {
+			display: flex;
+			flex-wrap: wrap;
+			float: left;
+			cursor: pointer;
+		}
+		/*#lightSlider li .app {
+			margin: 10px 13.1px;
+		}*/
+	}
+	
+	//adicionar efeito fade ao desbloquear 
+
+	.app {
+		@include largAlt(44px, 44px);
+		border-radius: 10px;
+		margin: 10px 13.1px;
+		display: flex;
+		justify-content: center;
+		border: none;
+		padding: 0px;
+		outline: none;
+
+		/*melhorar*/
+		&.clicked {
+			width: 281px;
+			height: 100%;
+			margin: 0px;
+			position: absolute;
+			transition: width .1s linear, height .1s linear;
+		}
+	}
+
+	#navBottom {
+		width: 100%;
+		height: 68px;
+		background: rgba(200,200,200,0.6);
+		position: absolute;
+		bottom: 0;
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+
+		.first {
+			background: linear-gradient(100deg, #AED581, #56be13);
+		}
+		.second, .fourth {
+			overflow: hidden;
+		}
+		.second img {
+			@include largAlt(100%, 100%);
+			object-fit: cover;
+		}
+		.third {
+			background: linear-gradient(100deg, #AED581, #56be13);
+		}
+		.fourth img {
+			@include largAlt(100%, 100%);
+			object-fit: cover;
+		}
+		.fa-phone-alt, .fa-compass, .fa-comment, .fa-music {
+			font-size: 27px;
+		}
+		.fa-phone-alt, .fa-comment {
+			color: white;
+		}
+		.fa-compass {
+			color: blue;
+			font-size: 30px
+		}
+		.fa-music {
+			color: purple;
+		}
 	}
 }
 
 .checking {
-	@include largAlt(80%, 10px);
+	@include largAlt(125px, 10px);
 	display: flex;
 	margin: 0 auto;
-	justify-content: center;
+	justify-content: space-between;
+
+	&.animate {
+		animation: balancar 500ms;
+		animation-timing-function: linear;
+	}
 
 	label {
 		width: 6px;
 		height: 6px;
-		margin: 0 5%;
+		margin: 0 10px;
 		border-radius: 50%;
 		border: 2px solid white;
 		transition: background .3s;
@@ -181,6 +293,35 @@ body {
 		}
 	}
 }
+@-webkit-keyframes balancar {
+	50% {
+		-webkit-transform: translateX(10px);
+		transform: translateX(10px);
+	}
+	75% {
+		-webkit-transform: translateX(-20px);
+		transform: translateX(-20px);
+	}
+	100% {
+		-webkit-transform: translateX(10px);
+		transform: translateX(10px);
+	}
+}
+@keyframes balancar {
+	50% {
+		-webkit-transform: translateX(10px);
+		transform: translateX(10px);
+	}
+	75% {
+		-webkit-transform: translateX(-20px);
+		transform: translateX(-20px);
+	}
+	100% {
+		-webkit-transform: translateX(10px);
+		transform: translateX(10px);
+	}
+}
+
 .digits {
 	width: 80%;
 	display: flex;
@@ -239,20 +380,3 @@ body {
 	display: flex;
 	flex-direction: column;
 }
-
-		
-		
-		
-		
-
-		
-		
-		
-		
-		
-		
-	
-		
-		
-		
-		
