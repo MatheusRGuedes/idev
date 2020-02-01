@@ -60,7 +60,7 @@ $(window).ready(function() {
 									keyPress: false,
 									pager: false
 								});
-							})
+							});
 
 							console.log(codeDigited);
 						} 
