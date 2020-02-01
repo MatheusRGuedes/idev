@@ -88,13 +88,13 @@ body {
 	filter: blur(4px) brightness(80%);
 	width: 100%;
 	height: 100%;
-	position: absolute;
-	z-index: -1;
+	position: absolute;										// mudar para teste
+	z-index: -1; /*2*/
 }
 #screenContent {
 	font-family: sans-serif;
 	padding: 7px;
-	position: relative;
+	position: relative; /*absolute*/
 	display: block;
 	height: calc(100% - 18px);
 	border: 2px solid black;
@@ -105,6 +105,7 @@ body {
 	position: relative;
 	height: 15px;
 	width: 100%;
+	z-index: 2;
 
 	div {
 		width: 30px;
@@ -157,9 +158,10 @@ body {
 	width: 100%;
 	height: auto;
 	margin-top: 1.5em;
-	display: block;
+	display: block;	/*block*/								// mudar para teste
 	position: relative;
 	text-align: center;
+	z-index: 2;
 
 	p {
 		margin: 0 0 1em 0;
@@ -171,12 +173,12 @@ body {
 	background-image: url('images/background.jpg');
 	background-repeat: no-repeat;
 	background-size: cover;
-	display: block;
+	display: none;
 	position: absolute;
 	top: 0;
 	left: 0;
 	overflow-x: auto;
-	z-index: -1;
+	z-index: 1;
 
 	&.unlocked {
 		display: block;
