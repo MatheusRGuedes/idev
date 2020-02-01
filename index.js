@@ -86,10 +86,4 @@ $(window).ready(function() {
 		});
 		
 
-		const apps = document.querySelectorAll(".finalScreen li .app");
 
-		for (let pos = 0; pos < apps.length; pos++) {
-			apps[pos].addEventListener("click", function(){
-				this.classList.add("clicked");
-			})
-		}
