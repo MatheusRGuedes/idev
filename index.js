@@ -1,6 +1,4 @@
-//screen como imagem de fundo caso o usuario queira
-
-		$(window).ready(function() {
+$(window).ready(function() {
 			let screenContent = $('#screenContent');
 			screenContent.fadeOut();
 
@@ -11,7 +9,8 @@
 		});
 
 		const screenContent = document.getElementById('screenContent'),
-			  lock = document.querySelector('#navTop .fa-lock');
+			  lock = document.querySelector('#navTop .fa-lock'),
+			  finalScreen = document.querySelector('.finalScreen');
 
 		//pegar e validar codigo
 		document.getElementById('salvar').addEventListener("click", function() {
@@ -45,12 +44,23 @@
 						posCheck++;
 
 						if (codeDigited === codeAcess) { 
+
+							finalScreen.classList.add('unlocked');
+
 							$(function() {
 								$('#unlockScreen , #bg-image , #navTop div').slideUp('fast');
-							})
 
-							const finalScreen = document.querySelector('.finalScreen');
-							finalScreen.classList.add('unlocked');
+								$('#lightSlider').lightSlider({
+									gallery: false,
+									item: 1,
+									controls: false,
+									slideMargin: 10,
+									vertical: false,
+									adaptativeHeight: false,
+									keyPress: false,
+									pager: false
+								});
+							})
 
 							console.log(codeDigited);
 						} 
@@ -74,20 +84,7 @@
 
 			}
 		});
-
-		$(document).ready(function() {
-			$('#lightSlider').lightSlider({
-				gallery: false,
-				item: 1,
-				controls: false,
-				slideMargin: 10,
-				vertical: false,
-				adaptativeHeight: false,
-				keyPress: false,
-				pager: false
-			});
-		});
-
+		
 
 		const apps = document.querySelectorAll(".finalScreen li .app");
 
