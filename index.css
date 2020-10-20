@@ -169,6 +169,7 @@ body {
     border-radius: 10px;
     margin: 10px 13.1px;
     display: flex;
+    align-items: center;
     justify-content: center;
     border: none;
     padding: 0px;
